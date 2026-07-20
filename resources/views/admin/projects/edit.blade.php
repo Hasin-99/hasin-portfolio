@@ -17,6 +17,18 @@
             <textarea name="description" rows="5" required>{{ old('description', $project->description) }}</textarea>
         </div>
         <div>
+            <label>Problem</label>
+            <textarea name="problem" rows="3" placeholder="What problem did this project solve?">{{ old('problem', $project->problem) }}</textarea>
+        </div>
+        <div>
+            <label>Approach</label>
+            <textarea name="approach" rows="3" placeholder="Stack choices, architecture, and why">{{ old('approach', $project->approach) }}</textarea>
+        </div>
+        <div>
+            <label>Impact</label>
+            <textarea name="impact" rows="3" placeholder="Result, improvement, or what recruiters should notice">{{ old('impact', $project->impact) }}</textarea>
+        </div>
+        <div>
             <label>Current Image</label>
             @if($project->image)
                 <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" style="max-width: 200px; display: block; margin: 0.5rem 0;">

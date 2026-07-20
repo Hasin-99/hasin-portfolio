@@ -139,8 +139,11 @@ class InitialDataSeeder extends Seeder
             ],
         ];
 
+        $thinking = require database_path('data/project_thinking.php');
+
         foreach ($projects as $project) {
-            Project::create($project);
+            $extra = $thinking[$project['title']] ?? [];
+            Project::create(array_merge($project, $extra));
         }
 
         $skills = [

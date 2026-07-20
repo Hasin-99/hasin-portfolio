@@ -93,8 +93,8 @@
         <div class="selected-work-header reveal">
             <div>
                 <p class="section-label">Projects</p>
-                <h2 class="section-title" id="selected-work-title">Projects I have built and published.</h2>
-                <p class="section-lead">{{ $projectList->count() }} projects from my CV: this portfolio and PayKotha as individual builds, plus team work across transport, medical ML, IoT, and systems.</p>
+                <h2 class="section-title" id="selected-work-title">Built for problems, not just demos.</h2>
+                <p class="section-lead">{{ $projectList->count() }} projects with Problem → Approach → Impact. Portfolio and PayKotha are individual builds; the rest are team work across transport, medical ML, IoT, and systems.</p>
             </div>
             <a href="{{ route('works') }}" class="btn btn-ghost magnetic" data-cursor="Archive">Open full list</a>
         </div>
@@ -110,7 +110,7 @@
                     <span class="work-num">{{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}</span>
                     <div class="work-main">
                         <span class="work-title">{{ $project->title }}</span>
-                        <span class="work-excerpt">{{ \Illuminate\Support\Str::limit($project->description, 110) }}</span>
+                        <span class="work-excerpt">{{ \Illuminate\Support\Str::limit($project->problem ?: $project->description, 110) }}</span>
                     </div>
                     <span class="work-category">{{ $project->category ?? 'Project' }}</span>
                     <span class="work-arrow" aria-hidden="true">→</span>

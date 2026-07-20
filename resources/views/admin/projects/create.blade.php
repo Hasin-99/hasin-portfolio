@@ -16,6 +16,18 @@
             <textarea name="description" rows="5" required>{{ old('description') }}</textarea>
         </div>
         <div>
+            <label>Problem</label>
+            <textarea name="problem" rows="3" placeholder="What problem did this project solve?">{{ old('problem') }}</textarea>
+        </div>
+        <div>
+            <label>Approach</label>
+            <textarea name="approach" rows="3" placeholder="Stack choices, architecture, and why">{{ old('approach') }}</textarea>
+        </div>
+        <div>
+            <label>Impact</label>
+            <textarea name="impact" rows="3" placeholder="Result, improvement, or what recruiters should notice">{{ old('impact') }}</textarea>
+        </div>
+        <div>
             <label>Image</label>
             <input type="file" name="image" accept="image/*">
         </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Work - Md. Shadman Hasin')
-@section('meta_description', 'Projects by Md. Shadman Hasin: StudentMove, PayKotha, CodeKotha, CKD AI, security, IoT, graphics. Filter and search live.')
+@section('meta_description', 'Projects by Md. Shadman Hasin with Problem, Approach, and Impact: StudentMove, PayKotha, CodeKotha, CKD AI, security, IoT, and graphics.')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/works.css') }}">
@@ -13,9 +13,9 @@
     @endphp
 
     <header class="works-hero">
-        <p class="section-label reveal">Portfolio</p>
-        <h1 class="reveal">Projects I shipped. Filter and search update live.</h1>
-        <p class="reveal">StudentMove, PayKotha, CodeKotha, clinical ML, security, IoT, and graphics. Type a keyword or tap a category and the list updates as you go.</p>
+        <p class="section-label reveal">Work</p>
+        <h1 class="reveal">How I think through builds.</h1>
+        <p class="reveal">Each project opens with the problem, the approach, and the impact before the stack. Filter or search to jump to StudentMove, PayKotha, CodeKotha, clinical ML, security, IoT, and more.</p>
     </header>
 
     <div class="works-toolbar reveal">
@@ -49,7 +49,7 @@
                 <span class="project-num">{{ str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) }}</span>
                 <div class="project-main">
                     <h2>{{ $project->title }}</h2>
-                    <p>{{ \Illuminate\Support\Str::limit($project->description, 160) }}</p>
+                    <p>{{ \Illuminate\Support\Str::limit($project->problem ?: $project->description, 160) }}</p>
                 </div>
                 <div class="project-tags">
                     @foreach(array_slice($tags, 0, 5) as $tag)

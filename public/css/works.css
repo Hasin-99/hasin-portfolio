@@ -224,6 +224,54 @@
   margin-bottom: 1rem;
 }
 
+.detail-panel--thinking {
+  border-top: none;
+  padding-top: 0.5rem;
+}
+
+.detail-thinking-lead {
+  margin: -0.35rem 0 1.25rem;
+  color: var(--signal);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.detail-stack-note {
+  margin: -0.35rem 0 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 300;
+}
+
+.thinking-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 800px) {
+  .thinking-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.thinking-block h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.55rem;
+  color: var(--ink);
+}
+
+.thinking-block p {
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
 .detail-body-copy {
   font-size: 1.05rem;
   font-weight: 300;

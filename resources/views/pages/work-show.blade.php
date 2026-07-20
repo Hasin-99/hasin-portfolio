@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $project->title . ' - Md. Shadman Hasin')
-@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($project->description), 155))
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($project->problem ?: $project->description), 155))
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/works.css') }}">
@@ -27,6 +27,8 @@
                 $liveUrl = $candidate;
             }
         }
+        $heroLead = $project->problem ?: $project->description;
+        $hasThinking = filled($project->problem) || filled($project->approach) || filled($project->impact);
     @endphp
 
     <article>
@@ -34,7 +36,7 @@
             <a href="{{ route('works') }}" class="detail-back">← All Work</a>
             <p class="detail-cat reveal">{{ $project->category ?? 'Project' }}</p>
             <h1 class="reveal">{{ $project->title }}</h1>
-            <p class="lead reveal">{{ \Illuminate\Support\Str::limit($project->description, 220) }}</p>
+            <p class="lead reveal">{{ \Illuminate\Support\Str::limit($heroLead, 240) }}</p>
             <div class="detail-actions reveal">
                 @if($liveUrl)
                     <a href="{{ $liveUrl }}" class="btn btn-primary magnetic" target="_blank" rel="noopener" data-cursor="Live">View Live Site</a>
@@ -47,17 +49,37 @@
         </header>
 
         <div class="detail-body">
-            <div class="detail-visual reveal">
-                @if($imageUrl)
-                    <img src="{{ $imageUrl }}" alt="{{ $project->title }}">
-                @else
-                    <div class="detail-visual-fallback">{{ $project->category ?? 'HASIN' }}</div>
-                @endif
-            </div>
+            @if($hasThinking)
+                <section class="detail-panel detail-panel--thinking reveal" aria-labelledby="thinking-title">
+                    <h2 id="thinking-title">Why this project</h2>
+                    <p class="detail-thinking-lead">Problem → Approach → Impact</p>
+                    <div class="thinking-grid">
+                        @if($project->problem)
+                            <div class="thinking-block">
+                                <h3>Problem</h3>
+                                <p>{{ $project->problem }}</p>
+                            </div>
+                        @endif
+                        @if($project->approach)
+                            <div class="thinking-block">
+                                <h3>Approach</h3>
+                                <p>{{ $project->approach }}</p>
+                            </div>
+                        @endif
+                        @if($project->impact)
+                            <div class="thinking-block">
+                                <h3>Impact</h3>
+                                <p>{{ $project->impact }}</p>
+                            </div>
+                        @endif
+                    </div>
+                </section>
+            @endif
 
             @if(count($tags))
                 <section class="detail-panel reveal">
                     <h2>Stack</h2>
+                    <p class="detail-stack-note">Tools used to solve the problem above.</p>
                     <div class="detail-tags">
                         @foreach($tags as $tag)
                             <span class="tag">{{ $tag }}</span>
@@ -66,10 +88,12 @@
                 </section>
             @endif
 
-            <section class="detail-panel reveal">
-                <h2>Overview</h2>
-                <p class="detail-body-copy">{{ $project->description }}</p>
-            </section>
+            @if(! $hasThinking || filled($project->description))
+                <section class="detail-panel reveal">
+                    <h2>{{ $hasThinking ? 'Project notes' : 'Overview' }}</h2>
+                    <p class="detail-body-copy">{{ $project->description }}</p>
+                </section>
+            @endif
 
             @if($liveUrl || $project->project_url)
                 <section class="detail-panel reveal">
