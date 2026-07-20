@@ -20,6 +20,13 @@
                     ? asset($project->image)
                     : asset('storage/' . $project->image));
         }
+        $liveUrl = null;
+        if (preg_match('#https://[^\s]+#', (string) $project->description, $liveMatch)) {
+            $candidate = rtrim($liveMatch[0], '.,;|)');
+            if (! str_contains($candidate, 'github.com')) {
+                $liveUrl = $candidate;
+            }
+        }
     @endphp
 
     <article>
@@ -29,8 +36,11 @@
             <h1 class="reveal">{{ $project->title }}</h1>
             <p class="lead reveal">{{ \Illuminate\Support\Str::limit($project->description, 220) }}</p>
             <div class="detail-actions reveal">
+                @if($liveUrl)
+                    <a href="{{ $liveUrl }}" class="btn btn-primary magnetic" target="_blank" rel="noopener" data-cursor="Live">View Live Site</a>
+                @endif
                 @if($project->project_url)
-                    <a href="{{ $project->project_url }}" class="btn btn-primary magnetic" target="_blank" rel="noopener" data-cursor="GitHub">View Repository</a>
+                    <a href="{{ $project->project_url }}" class="btn {{ $liveUrl ? 'btn-ghost' : 'btn-primary' }} magnetic" target="_blank" rel="noopener" data-cursor="GitHub">View Repository</a>
                 @endif
                 <a href="{{ route('contact') }}" class="btn btn-ghost magnetic" data-cursor="Talk">Discuss a Similar Build</a>
             </div>
@@ -61,10 +71,15 @@
                 <p class="detail-body-copy">{{ $project->description }}</p>
             </section>
 
-            @if($project->project_url)
+            @if($liveUrl || $project->project_url)
                 <section class="detail-panel reveal">
-                    <h2>Repository</h2>
-                    <p class="detail-body-copy"><a href="{{ $project->project_url }}" target="_blank" rel="noopener">{{ $project->project_url }}</a></p>
+                    <h2>Links</h2>
+                    @if($liveUrl)
+                        <p class="detail-body-copy"><a href="{{ $liveUrl }}" target="_blank" rel="noopener">Live: {{ $liveUrl }}</a></p>
+                    @endif
+                    @if($project->project_url)
+                        <p class="detail-body-copy"><a href="{{ $project->project_url }}" target="_blank" rel="noopener">GitHub: {{ $project->project_url }}</a></p>
+                    @endif
                 </section>
             @endif
 

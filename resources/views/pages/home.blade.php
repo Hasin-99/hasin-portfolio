@@ -54,9 +54,10 @@
     <div class="signal-marquee" aria-hidden="true">
         <div class="signal-marquee-track">
             @foreach([1,2] as $loopCopy)
+                <span>Portfolio</span><span class="sep">✦</span>
+                <span>PayKotha</span><span class="sep">✦</span>
                 <span>StudentMove Flutter</span><span class="sep">✦</span>
                 <span>StudentMove Laravel</span><span class="sep">✦</span>
-                <span>PayKotha</span><span class="sep">✦</span>
                 <span>CodeKotha</span><span class="sep">✦</span>
                 <span>CKD Multimodal</span><span class="sep">✦</span>
                 <span>CICIDS2017</span><span class="sep">✦</span>
@@ -93,7 +94,7 @@
             <div>
                 <p class="section-label">Projects</p>
                 <h2 class="section-title" id="selected-work-title">Projects I have built and published.</h2>
-                <p class="section-lead">{{ $projectList->count() }} active repos covering campus transport, wallets, medical ML, and a Bangla compiler.</p>
+                <p class="section-lead">{{ $projectList->count() }} projects from my CV: this portfolio and PayKotha as individual builds, plus team work across transport, medical ML, IoT, and systems.</p>
             </div>
             <a href="{{ route('works') }}" class="btn btn-ghost magnetic" data-cursor="Archive">Open full list</a>
         </div>
