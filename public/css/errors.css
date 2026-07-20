@@ -1,0 +1,85 @@
+/* =========================================================
+   HASIN — branded error pages (Lagoon Forge)
+   ========================================================= */
+
+.error-body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.error-stage {
+  width: min(36rem, 100%);
+  text-align: left;
+}
+
+.error-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+}
+
+.error-brand .hasin-mark {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.error-brand-word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+}
+
+.error-code {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(4rem, 16vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--signal);
+  margin: 0 0 1rem;
+}
+
+.error-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 0.85rem;
+  max-width: 18ch;
+}
+
+.error-lead {
+  color: var(--ink-soft);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 38ch;
+  margin: 0 0 2rem;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .error-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .error-actions .btn {
+    text-align: center;
+    justify-content: center;
+  }
+}

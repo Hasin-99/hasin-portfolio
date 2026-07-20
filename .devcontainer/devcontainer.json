@@ -1,0 +1,14 @@
+{
+    "name": "Laravel Codespace",
+    "dockerFile": "Dockerfile",
+    "forwardPorts": [8000],
+    "postCreateCommand": "composer install && php artisan migrate",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "onecentlin.laravel-blade",
+          "amiralizadeh9480.laravel-extra-intellisense"
+        ]
+      }
+    }
+  }
