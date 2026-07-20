@@ -51,24 +51,23 @@
         <div class="detail-body">
             @if($hasThinking)
                 <section class="detail-panel detail-panel--thinking reveal" aria-labelledby="thinking-title">
-                    <h2 id="thinking-title">Why this project</h2>
-                    <p class="detail-thinking-lead">Problem → Approach → Impact</p>
+                    <h2 id="thinking-title">What I was solving</h2>
                     <div class="thinking-grid">
                         @if($project->problem)
                             <div class="thinking-block">
-                                <h3>Problem</h3>
+                                <h3>What was broken</h3>
                                 <p>{{ $project->problem }}</p>
                             </div>
                         @endif
                         @if($project->approach)
                             <div class="thinking-block">
-                                <h3>Approach</h3>
+                                <h3>What I tried</h3>
                                 <p>{{ $project->approach }}</p>
                             </div>
                         @endif
                         @if($project->impact)
                             <div class="thinking-block">
-                                <h3>Impact</h3>
+                                <h3>What changed</h3>
                                 <p>{{ $project->impact }}</p>
                             </div>
                         @endif

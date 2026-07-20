@@ -14,8 +14,8 @@
 
     <header class="works-hero">
         <p class="section-label reveal">Work</p>
-        <h1 class="reveal">How I think through builds.</h1>
-        <p class="reveal">Each project opens with the problem, the approach, and the impact before the stack. Filter or search to jump to StudentMove, PayKotha, CodeKotha, clinical ML, security, IoT, and more.</p>
+        <h1 class="reveal">What broke, what I tried, what changed.</h1>
+        <p class="reveal">Every project page starts with that story, then the stack. Search or filter for StudentMove, PayKotha, CodeKotha, clinical ML, security, IoT, and the rest.</p>
     </header>
 
     <div class="works-toolbar reveal">

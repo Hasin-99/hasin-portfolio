@@ -229,15 +229,6 @@
   padding-top: 0.5rem;
 }
 
-.detail-thinking-lead {
-  margin: -0.35rem 0 1.25rem;
-  color: var(--signal);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .detail-stack-note {
   margin: -0.35rem 0 1rem;
   color: var(--muted);
