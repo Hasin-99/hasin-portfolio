@@ -12,14 +12,6 @@
         $tags = is_array($project->tech_tags)
             ? $project->tech_tags
             : array_filter(array_map('trim', explode(',', (string) $project->tech_tags)));
-        $imageUrl = null;
-        if ($project->image) {
-            $imageUrl = str_starts_with($project->image, 'http')
-                ? $project->image
-                : (str_starts_with($project->image, 'storage/') || str_starts_with($project->image, 'assets/')
-                    ? asset($project->image)
-                    : asset('storage/' . $project->image));
-        }
         $liveUrl = null;
         if (preg_match('#https://[^\s]+#', (string) $project->description, $liveMatch)) {
             $candidate = rtrim($liveMatch[0], '.,;|)');
