@@ -224,9 +224,74 @@
   margin-bottom: 1rem;
 }
 
-.detail-panel--thinking {
+.case-note {
+  position: relative;
+  margin: 0 0 0.5rem;
+  padding: clamp(1.75rem, 4vw, 2.75rem) 0 clamp(2.25rem, 5vw, 3.25rem);
+  max-width: 46rem;
   border-top: none;
-  padding-top: 0.5rem;
+}
+
+.case-note::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--signal), transparent);
+}
+
+.case-note-eyebrow {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+}
+
+.case-note-lede {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  max-width: 22ch;
+}
+
+.case-note-body {
+  margin: 0 0 1.75rem;
+}
+
+.case-note-body p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+.case-note-proof {
+  margin: 0;
+  padding: 1.15rem 0 0 1.15rem;
+  border-left: 2px solid var(--signal);
+  background: linear-gradient(90deg, var(--signal-wash), transparent 70%);
+}
+
+.case-note-proof p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 40ch;
 }
 
 .detail-stack-note {
@@ -234,56 +299,6 @@
   color: var(--muted);
   font-size: 0.92rem;
   font-weight: 300;
-}
-
-.thinking-grid {
-  display: grid;
-  gap: 1.75rem;
-}
-
-@media (min-width: 900px) {
-  .thinking-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem;
-    align-items: start;
-  }
-}
-
-.thinking-block {
-  position: relative;
-  padding-top: 0.15rem;
-}
-
-@media (min-width: 900px) {
-  .thinking-block + .thinking-block {
-    border-left: 1px solid color-mix(in srgb, var(--line, rgba(255, 255, 255, 0.12)) 100%, transparent);
-    padding-left: 1.35rem;
-  }
-}
-
-.thinking-index {
-  margin: 0 0 0.45rem;
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: var(--signal);
-}
-
-.thinking-block h3 {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.65rem;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-
-.thinking-block p:not(.thinking-index) {
-  font-size: 0.98rem;
-  font-weight: 300;
-  color: var(--ink-soft);
-  line-height: 1.75;
 }
 
 .detail-body-copy {

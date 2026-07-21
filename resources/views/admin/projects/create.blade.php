@@ -16,16 +16,16 @@
             <textarea name="description" rows="5" required>{{ old('description') }}</textarea>
         </div>
         <div>
-            <label>Problem</label>
-            <textarea name="problem" rows="3" placeholder="What problem did this project solve?">{{ old('problem') }}</textarea>
+            <label>Field note — opening line</label>
+            <textarea name="problem" rows="2" placeholder="One hard opening line. Not a paragraph.">{{ old('problem') }}</textarea>
         </div>
         <div>
-            <label>Approach</label>
-            <textarea name="approach" rows="3" placeholder="Stack choices, architecture, and why">{{ old('approach') }}</textarea>
+            <label>Field note — story</label>
+            <textarea name="approach" rows="4" placeholder="How the build actually ran. Specific, no worksheet tone.">{{ old('approach') }}</textarea>
         </div>
         <div>
-            <label>Impact</label>
-            <textarea name="impact" rows="3" placeholder="Result, improvement, or what recruiters should notice">{{ old('impact') }}</textarea>
+            <label>Field note — proof</label>
+            <textarea name="impact" rows="2" placeholder="What held in the room or review. One sharp close.">{{ old('impact') }}</textarea>
         </div>
         <div>
             <label>Image</label>

@@ -93,8 +93,8 @@
         <div class="selected-work-header reveal">
             <div>
                 <p class="section-label">Projects</p>
-                <h2 class="section-title" id="selected-work-title">Work that started with a bind.</h2>
-                <p class="section-lead">{{ $projectList->count() }} projects. Portfolio and PayKotha are mine alone; the rest were team builds. Open one for the bind, the move, and what stuck.</p>
+                <h2 class="section-title" id="selected-work-title">Selected builds.</h2>
+                <p class="section-lead">{{ $projectList->count() }} projects. Portfolio and PayKotha are solo; the rest were team work. Open a title for the field note behind it.</p>
             </div>
             <a href="{{ route('works') }}" class="btn btn-ghost magnetic" data-cursor="Archive">Open full list</a>
         </div>

@@ -50,38 +50,27 @@
 
         <div class="detail-body">
             @if($hasThinking)
-                <section class="detail-panel detail-panel--thinking reveal" aria-labelledby="thinking-title">
-                    <h2 id="thinking-title">Inside the work</h2>
-                    <div class="thinking-grid">
-                        @if($project->problem)
-                            <div class="thinking-block">
-                                <p class="thinking-index" aria-hidden="true">01</p>
-                                <h3>The bind</h3>
-                                <p>{{ $project->problem }}</p>
-                            </div>
-                        @endif
-                        @if($project->approach)
-                            <div class="thinking-block">
-                                <p class="thinking-index" aria-hidden="true">02</p>
-                                <h3>The move</h3>
-                                <p>{{ $project->approach }}</p>
-                            </div>
-                        @endif
-                        @if($project->impact)
-                            <div class="thinking-block">
-                                <p class="thinking-index" aria-hidden="true">03</p>
-                                <h3>What stuck</h3>
-                                <p>{{ $project->impact }}</p>
-                            </div>
-                        @endif
-                    </div>
+                <section class="case-note reveal" aria-labelledby="case-note-title">
+                    <p class="case-note-eyebrow" id="case-note-title">Field note</p>
+                    @if($project->problem)
+                        <p class="case-note-lede">{{ $project->problem }}</p>
+                    @endif
+                    @if($project->approach)
+                        <div class="case-note-body">
+                            <p>{{ $project->approach }}</p>
+                        </div>
+                    @endif
+                    @if($project->impact)
+                        <blockquote class="case-note-proof">
+                            <p>{{ $project->impact }}</p>
+                        </blockquote>
+                    @endif
                 </section>
             @endif
 
             @if(count($tags))
                 <section class="detail-panel reveal">
                     <h2>Stack</h2>
-                    <p class="detail-stack-note">What carried the move above.</p>
                     <div class="detail-tags">
                         @foreach($tags as $tag)
                             <span class="tag">{{ $tag }}</span>
@@ -130,3 +119,49 @@
         </div>
     </article>
 @endsection
+
+@push('scripts')
+    <script>
+        (function () {
+            const note = document.querySelector('.case-note');
+            if (!note || typeof anime === 'undefined' || !anime.animate) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const lede = note.querySelector('.case-note-lede');
+            const body = note.querySelector('.case-note-body');
+            const proof = note.querySelector('.case-note-proof');
+
+            const run = () => {
+                if (lede) {
+                    anime.animate(lede, {
+                        opacity: [0, 1],
+                        translateY: [28, 0],
+                        duration: 900,
+                        ease: 'out(3)',
+                    });
+                }
+                if (body) {
+                    anime.animate(body, {
+                        opacity: [0, 1],
+                        translateY: [18, 0],
+                        duration: 800,
+                        delay: 120,
+                        ease: 'out(3)',
+                    });
+                }
+                if (proof) {
+                    anime.animate(proof, {
+                        opacity: [0, 1],
+                        translateX: [-16, 0],
+                        duration: 850,
+                        delay: 220,
+                        ease: 'out(3)',
+                    });
+                }
+            };
+
+            if (document.documentElement.classList.contains('is-ready')) run();
+            else document.addEventListener('hasin:ready', run, { once: true });
+        })();
+    </script>
+@endpush

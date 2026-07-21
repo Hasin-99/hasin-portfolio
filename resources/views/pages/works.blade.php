@@ -14,8 +14,8 @@
 
     <header class="works-hero">
         <p class="section-label reveal">Work</p>
-        <h1 class="reveal">Case notes before the stack.</h1>
-        <p class="reveal">Each project opens with the bind that forced the build, then the tools. Search StudentMove, PayKotha, CodeKotha, clinical ML, security, IoT, and the rest.</p>
+        <h1 class="reveal">The archive.</h1>
+        <p class="reveal">Field notes first, stack second. Search StudentMove, PayKotha, CodeKotha, clinical ML, security, IoT, and the rest.</p>
     </header>
 
     <div class="works-toolbar reveal">
