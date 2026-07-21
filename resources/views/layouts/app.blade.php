@@ -11,6 +11,9 @@
     <meta property="og:description" content="@yield('meta_description', 'Software Developer and CSE graduate building systems across web, mobile, and machine learning.')">
     <meta property="og:type" content="website">
     <title>@yield('title', 'Md. Shadman Hasin - Portfolio')</title>
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">

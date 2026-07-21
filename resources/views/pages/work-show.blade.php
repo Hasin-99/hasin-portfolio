@@ -51,23 +51,26 @@
         <div class="detail-body">
             @if($hasThinking)
                 <section class="detail-panel detail-panel--thinking reveal" aria-labelledby="thinking-title">
-                    <h2 id="thinking-title">What I was solving</h2>
+                    <h2 id="thinking-title">Inside the work</h2>
                     <div class="thinking-grid">
                         @if($project->problem)
                             <div class="thinking-block">
-                                <h3>What was broken</h3>
+                                <p class="thinking-index" aria-hidden="true">01</p>
+                                <h3>The bind</h3>
                                 <p>{{ $project->problem }}</p>
                             </div>
                         @endif
                         @if($project->approach)
                             <div class="thinking-block">
-                                <h3>What I tried</h3>
+                                <p class="thinking-index" aria-hidden="true">02</p>
+                                <h3>The move</h3>
                                 <p>{{ $project->approach }}</p>
                             </div>
                         @endif
                         @if($project->impact)
                             <div class="thinking-block">
-                                <h3>What changed</h3>
+                                <p class="thinking-index" aria-hidden="true">03</p>
+                                <h3>What stuck</h3>
                                 <p>{{ $project->impact }}</p>
                             </div>
                         @endif
@@ -78,7 +81,7 @@
             @if(count($tags))
                 <section class="detail-panel reveal">
                     <h2>Stack</h2>
-                    <p class="detail-stack-note">Tools used to solve the problem above.</p>
+                    <p class="detail-stack-note">What carried the move above.</p>
                     <div class="detail-tags">
                         @foreach($tags as $tag)
                             <span class="tag">{{ $tag }}</span>

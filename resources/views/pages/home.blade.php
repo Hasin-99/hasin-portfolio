@@ -93,8 +93,8 @@
         <div class="selected-work-header reveal">
             <div>
                 <p class="section-label">Projects</p>
-                <h2 class="section-title" id="selected-work-title">Things I built when something was broken.</h2>
-                <p class="section-lead">{{ $projectList->count() }} projects. I made this portfolio and PayKotha on my own. The others were team builds. Open any one to see what went wrong, what we tried, and what got better.</p>
+                <h2 class="section-title" id="selected-work-title">Work that started with a bind.</h2>
+                <p class="section-lead">{{ $projectList->count() }} projects. Portfolio and PayKotha are mine alone; the rest were team builds. Open one for the bind, the move, and what stuck.</p>
             </div>
             <a href="{{ route('works') }}" class="btn btn-ghost magnetic" data-cursor="Archive">Open full list</a>
         </div>
