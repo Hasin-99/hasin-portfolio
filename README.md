@@ -58,8 +58,8 @@ Use that URL on your resume, LinkedIn, and GitHub profile — not a local `127.0
 ### Install & run
 
 ```bash
-git clone https://github.com/Hasin-99/full-stack-dynamic-portfolio1.git
-cd full-stack-dynamic-portfolio1
+git clone https://github.com/Hasin-99/hasin-portfolio.git
+cd hasin-portfolio
 
 composer install
 cp .env.example .env
@@ -91,8 +91,10 @@ Change the password after first login if the site is public.
 
 - **Home** — HASIN brand hero, selected work, kinetic motion, signal lattice canvas
 - **Work** — full archive with live category filters + search
+- **Project pages** — editorial **field notes** (opening line → story → proof), then stack and links
 - **About** — skills, path, education (no GPA), certifications
 - **Contact** — live validation, copy email, phone links, full socials
+- **SEO** — `robots.txt` + `sitemap.xml` (includes all active project URLs)
 - **Errors** — branded 403 / 404 / 419 / 500 pages
 - **Logo wipe** — special HASIN mark between page loads
 - **Responsive** — mobile nav with Resume, breakpoints across pages
@@ -100,7 +102,7 @@ Change the password after first login if the site is public.
 ### Admin CMS (`/admin`)
 
 - Dashboard stats
-- Projects / skills / experiences CRUD
+- Projects / skills / experiences CRUD (field-note fields on projects)
 - Contact message inbox
 - Profile, about copy, socials, resume & photo uploads
 
@@ -157,12 +159,14 @@ Browser
 |------|------|
 | [`app/`](./app) | Controllers, models, middleware, providers |
 | [`database/seeders/`](./database/seeders) | CV + GitHub project seed data |
+| [`database/data/project_thinking.php`](./database/data/project_thinking.php) | Field-note copy for each project |
 | [`public/css/`](./public/css) | Lagoon Forge styles |
 | [`public/js/`](./public/js) | Wipe, filters, form UX, canvas, logo |
+| [`public/sitemap.xml`](./public/sitemap.xml) | Generated sitemap (also rebuilt on deploy) |
 | [`resources/views/`](./resources/views) | Public pages + admin + error pages |
 | [`Dockerfile`](./Dockerfile) | Production image for Render |
 | [`render.yaml`](./render.yaml) | Render Blueprint config |
-| [`deploy/render-start.sh`](./deploy/render-start.sh) | Migrate / seed / cache on boot |
+| [`deploy/render-start.sh`](./deploy/render-start.sh) | Migrate / seed / sitemap / cache on boot |
 
 ---
 
@@ -185,7 +189,8 @@ This repo is already wired for Docker on Render.
 | `RUN_SCRIPTS` | `1` |
 | `SKIP_COMPOSER` | `1` |
 
-4. Deploy → wait for **Live**
+4. Deploy → wait for **Live**  
+5. On boot, `deploy/render-start.sh` runs migrations, rebuilds `sitemap.xml` (`php artisan portfolio:build-sitemap`), and caches config/routes/views
 
 ---
 
@@ -220,8 +225,8 @@ Personal portfolio of **Md. Shadman Hasin**.
 
 ## License
 
-Proprietary personal portfolio for **Md. Shadman Hasin**.  
-Fork for learning if you want — keep attribution clear.
+© Md. Shadman Hasin. All rights reserved.  
+Proprietary personal portfolio — do not copy the design, copy, or content without permission.
 
 ---
 
