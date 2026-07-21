@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Work - Md. Shadman Hasin')
-@section('meta_description', 'Projects by Md. Shadman Hasin with Problem, Approach, and Impact: StudentMove, PayKotha, CodeKotha, CKD AI, security, IoT, and graphics.')
+@section('meta_description', 'Selected builds by Md. Shadman Hasin with field notes: StudentMove, PayKotha, CodeKotha, CKD AI, security, IoT, and graphics.')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/works.css') }}">

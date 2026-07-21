@@ -27,7 +27,6 @@
                 $liveUrl = $candidate;
             }
         }
-        $heroLead = $project->problem ?: $project->description;
         $hasThinking = filled($project->problem) || filled($project->approach) || filled($project->impact);
     @endphp
 
@@ -36,7 +35,9 @@
             <a href="{{ route('works') }}" class="detail-back">← All Work</a>
             <p class="detail-cat reveal">{{ $project->category ?? 'Project' }}</p>
             <h1 class="reveal">{{ $project->title }}</h1>
-            <p class="lead reveal">{{ \Illuminate\Support\Str::limit($heroLead, 240) }}</p>
+            @if(! $hasThinking && filled($project->description))
+                <p class="lead reveal">{{ \Illuminate\Support\Str::limit($project->description, 180) }}</p>
+            @endif
             <div class="detail-actions reveal">
                 @if($liveUrl)
                     <a href="{{ $liveUrl }}" class="btn btn-primary magnetic" target="_blank" rel="noopener" data-cursor="Live">View Live Site</a>
@@ -51,7 +52,7 @@
         <div class="detail-body">
             @if($hasThinking)
                 <section class="case-note reveal" aria-labelledby="case-note-title">
-                    <p class="case-note-eyebrow" id="case-note-title">Field note</p>
+                    <h2 class="case-note-eyebrow" id="case-note-title">Field note</h2>
                     @if($project->problem)
                         <p class="case-note-lede">{{ $project->problem }}</p>
                     @endif
@@ -79,9 +80,9 @@
                 </section>
             @endif
 
-            @if(! $hasThinking || filled($project->description))
+            @if(! $hasThinking && filled($project->description))
                 <section class="detail-panel reveal">
-                    <h2>{{ $hasThinking ? 'Project notes' : 'Overview' }}</h2>
+                    <h2>Overview</h2>
                     <p class="detail-body-copy">{{ $project->description }}</p>
                 </section>
             @endif
@@ -119,49 +120,3 @@
         </div>
     </article>
 @endsection
-
-@push('scripts')
-    <script>
-        (function () {
-            const note = document.querySelector('.case-note');
-            if (!note || typeof anime === 'undefined' || !anime.animate) return;
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-            const lede = note.querySelector('.case-note-lede');
-            const body = note.querySelector('.case-note-body');
-            const proof = note.querySelector('.case-note-proof');
-
-            const run = () => {
-                if (lede) {
-                    anime.animate(lede, {
-                        opacity: [0, 1],
-                        translateY: [28, 0],
-                        duration: 900,
-                        ease: 'out(3)',
-                    });
-                }
-                if (body) {
-                    anime.animate(body, {
-                        opacity: [0, 1],
-                        translateY: [18, 0],
-                        duration: 800,
-                        delay: 120,
-                        ease: 'out(3)',
-                    });
-                }
-                if (proof) {
-                    anime.animate(proof, {
-                        opacity: [0, 1],
-                        translateX: [-16, 0],
-                        duration: 850,
-                        delay: 220,
-                        ease: 'out(3)',
-                    });
-                }
-            };
-
-            if (document.documentElement.classList.contains('is-ready')) run();
-            else document.addEventListener('hasin:ready', run, { once: true });
-        })();
-    </script>
-@endpush

@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\WorksController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\SitemapController;
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -14,6 +15,7 @@ Route::get('/works', [WorksController::class, 'index'])->name('works');
 Route::get('/works/{project}', [WorksController::class, 'show'])->name('works.show');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
 
 // Authentication Routes
 Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('login');
