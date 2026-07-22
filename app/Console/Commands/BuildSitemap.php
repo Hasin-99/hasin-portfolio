@@ -13,7 +13,7 @@ class BuildSitemap extends Command
 
     public function handle(): int
     {
-        $base = rtrim(config('app.url') ?: 'https://full-stack-dynamic-portfolio1.onrender.com', '/');
+        $base = rtrim(config('app.url') ?: 'https://hasin-portfolio.onrender.com', '/');
 
         $urls = [
             ['loc' => $base.'/', 'changefreq' => 'weekly', 'priority' => '1.0'],

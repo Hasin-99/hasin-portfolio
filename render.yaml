@@ -15,7 +15,7 @@ services:
       - key: APP_KEY
         sync: false
       - key: APP_URL
-        value: https://full-stack-dynamic-portfolio1.onrender.com
+        value: https://hasin-portfolio.onrender.com
       - key: LOG_CHANNEL
         value: stderr
       - key: DB_CONNECTION
@@ -33,4 +33,6 @@ services:
       - key: REAL_IP_HEADER
         value: "1"
       - key: SKIP_COMPOSER
+        value: "1"
+      - key: PHP_CATCHALL
         value: "1"

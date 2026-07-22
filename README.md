@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://full-stack-dynamic-portfolio1.onrender.com">Live Site</a> ·
+  <a href="https://hasin-portfolio.onrender.com">Live Site</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#features">Features</a> ·
   <a href="#architecture">Architecture</a> ·
@@ -31,7 +31,7 @@ It is built to feel like a product, not a template dump: brand-first hero, logo 
 | | |
 |---|---|
 | **Owner** | Md. Shadman Hasin only — personal portfolio |
-| **Live** | [full-stack-dynamic-portfolio1.onrender.com](https://full-stack-dynamic-portfolio1.onrender.com) |
+| **Live** | [hasin-portfolio.onrender.com](https://hasin-portfolio.onrender.com) |
 | **CMS** | Admin panel for projects, skills, experiences, messages, settings |
 | **Design** | Lagoon Forge — deep teal void, copper forge accent, Syne + Outfit |
 
@@ -39,7 +39,7 @@ It is built to feel like a product, not a template dump: brand-first hero, logo 
 
 ## Live site
 
-**https://full-stack-dynamic-portfolio1.onrender.com**
+**https://hasin-portfolio.onrender.com**
 
 > Free Render instances sleep when idle. The first visit after a pause can take 30–60 seconds to wake.
 
@@ -181,7 +181,7 @@ This repo is already wired for Docker on Render.
 | Key | Value |
 |-----|--------|
 | `APP_KEY` | from `php artisan key:generate --show` |
-| `APP_URL` | `https://full-stack-dynamic-portfolio1.onrender.com` |
+| `APP_URL` | `https://hasin-portfolio.onrender.com` |
 | `APP_ENV` | `production` |
 | `APP_DEBUG` | `false` |
 | `DB_CONNECTION` | `sqlite` |
@@ -219,7 +219,7 @@ Personal portfolio of **Md. Shadman Hasin**.
 | **GitHub** | [github.com/Hasin-99](https://github.com/Hasin-99) |
 | **LinkedIn** | [Md. Shadman Hasin](https://www.linkedin.com/in/md-shadman-hasin-648587333) |
 | **WhatsApp** | [wa.me/8801764851551](https://wa.me/8801764851551) |
-| **Live site** | [full-stack-dynamic-portfolio1.onrender.com](https://full-stack-dynamic-portfolio1.onrender.com) |
+| **Live site** | [hasin-portfolio.onrender.com](https://hasin-portfolio.onrender.com) |
 
 ---
 

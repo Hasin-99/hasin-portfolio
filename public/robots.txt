@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://full-stack-dynamic-portfolio1.onrender.com/sitemap.xml
+Sitemap: https://hasin-portfolio.onrender.com/sitemap.xml

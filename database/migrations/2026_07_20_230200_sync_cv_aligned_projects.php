@@ -10,7 +10,7 @@ return new class extends Migration
         $projects = [
             [
                 'title' => 'Full Stack Dynamic Portfolio',
-                'description' => 'I built my personal portfolio in Laravel with an admin panel so projects, skills, experience, and contact messages can be updated without touching code. The site is deployed online for recruiters to review. Live: https://full-stack-dynamic-portfolio1.onrender.com',
+                'description' => 'I built my personal portfolio in Laravel with an admin panel so projects, skills, experience, and contact messages can be updated without touching code. The site is deployed online for recruiters to review. Live: https://hasin-portfolio.onrender.com',
                 'tech_tags' => json_encode(['Laravel', 'PHP', 'Admin CMS', 'Docker', 'Render']),
                 'category' => 'Web',
                 'project_url' => 'https://github.com/Hasin-99/hasin-portfolio',
